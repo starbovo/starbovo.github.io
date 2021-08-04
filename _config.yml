@@ -135,5 +135,5 @@ backup:
   theme: butterfly
   message: Back up my www.starbovo.com blog
   repository:
-    github: git@github.com:starbovo.github.io.git,backup
+    github: git@github.com:starbovo/starbovo.github.io.git,backup
    # coding: git@git.dev.tencent.com:starbovo.git,backup
