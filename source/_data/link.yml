@@ -1,0 +1,23 @@
+- class_name: 常用链接
+  class_desc: 点击直达
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-tw/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: hexo老家
+
+- class_name: 社交网站
+  class_desc: 快速导航
+  link_list:
+    - name: CSDN
+      link: https://www.csdn.net/
+      avatar: https://img0.baidu.com/it/u=2630584108,3667710027&fm=26&fmt=auto&gp=0.jpg
+      descr: 技术交流必备
+    - name: Weibo
+      link: https://www.weibo.com/
+      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
+      descr: 夹总老家
+    - name: 知乎
+      link: https://www.zhihu.com//
+      avatar: https://img0.baidu.com/it/u=1986771640,4264707330&fm=26&fmt=auto&gp=0.jpg
+      descr: 分享你刚编的故事
