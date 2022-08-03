@@ -1,0 +1,617 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CC Computer Science：发展史、二进制和逻辑门 | STARBO's BLOG</title><meta name="keywords" content="二进制,数电"><meta name="author" content="Starbo"><meta name="copyright" content="Starbo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="很有趣且简明易懂的计算机速成课，上学期每中午下饭必备视频，最近二刷整理一下笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CC Computer Science：发展史、二进制和逻辑门">
+<meta property="og:url" content="https://starbovo.github.io/post/8ddb51d4.html">
+<meta property="og:site_name" content="STARBO&#39;s BLOG">
+<meta property="og:description" content="很有趣且简明易懂的计算机速成课，上学期每中午下饭必备视频，最近二刷整理一下笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2021/08/08/fQ2IFe.png">
+<meta property="article:published_time" content="2021-08-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-26T09:54:02.115Z">
+<meta property="article:author" content="Starbo">
+<meta property="article:tag" content="二进制">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/08/08/fQ2IFe.png"><link rel="shortcut icon" href="https://z3.ax1x.com/2021/08/16/fRWc11.png"><link rel="canonical" href="https://starbovo.github.io/post/8ddb51d4"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Starbo","link":"链接: ","source":"来源: STARBO's BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CC Computer Science：发展史、二进制和逻辑门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-08-26 17:54:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2022/06/19/Xjcb28.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://z3.ax1x.com/2021/08/08/fQ2IFe.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">STARBO's BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CC Computer Science：发展史、二进制和逻辑门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-07T16:00:00.000Z" title="发表于 2021-08-08 00:00:00">2021-08-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-26T09:54:02.115Z" title="更新于 2021-08-26 17:54:02">2021-08-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BA%95%E5%B1%82%E5%9F%BA%E7%A1%80/">底层基础</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CC Computer Science：发展史、二进制和逻辑门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Crash Course Computer Science笔记（一）</h1>
+<p>课程链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av21376839?p=3">https://www.bilibili.com/video/av21376839?p=3</a></p>
+<p>字幕仓库：<a target="_blank" rel="noopener" href="https://github.com/1c7/crash-course-computer-science-chinese">https://github.com/1c7/crash-course-computer-science-chinese</a></p>
+<h2 id="电子计算机的发展史">电子计算机的发展史</h2>
+<ol>
+<li>
+<p>电子计算机元器件变化：继电器→真空管→晶体管</p>
+</li>
+<li>
+<p>计算机的出现背景：</p>
+<p>20 世纪人口暴增，科学与工程进步迅速，航天计划成形。以上导致数据的复杂度急剧上升、计算量暴增，对于计算的自动化、高速有迫切的需求。</p>
+</li>
+<li>
+<p>电子计算机的发展：</p>
+</li>
+</ol>
+<ul>
+<li>1945 年 哈佛马克 1：使用<strong>继电器</strong>，用电磁效应，控制机械开关，缺点为有磨损和延迟。</li>
+</ul>
+<p><code>继电器</code>是用电控制的机械开关。继电器里，有根&quot;<code>控制线路</code>&quot;，控制电路是开还是关，“控制线路” 连着一个线圈，当电流流过线圈，线圈产生电磁场，吸引金属臂，从而<code>闭合电路</code>。</p>
+<p><img src="/post/8ddb51d4/image-20210808135515886.png" alt="image-20210808135515886"></p>
+<p>你可以把继电器想成水龙头，把控制线路想成水龙头把。打开水龙头，水会流出来，关闭水龙头，水就没有了。继电器是一样的，只不过控制的是电子，而不是水。</p>
+<p>不幸的是，继电器内的机械臂<strong>有质量</strong>，因此<strong>无法快速开关</strong>，不足以解决复杂的大问题。</p>
+<p>*最早还因为有虫子飞进去导致故障，引申出 <strong>bug=故障的意思</strong>。</p>
+<ul>
+<li>
+<p>1943 年 巨人 1 号：使用<strong>真空管</strong>（三极管），制造出世界上第一个<strong>可编程</strong>的计算机。</p>
+<p><code>真空管</code>的起源：</p>
+<p>在 1904 年，英国物理学家John Ambrose Fleming开发了一种新的电子组件，叫&quot;<code>热电子管</code>&quot;，这是世上第一个真空管。其中一个电极可以加热，从而<strong>发射电子</strong>，另一个电极会<strong>吸引电子</strong>，但只有带正电才行。如果带负电荷或中性电荷，电子就没办法被吸引，越过真空区域，因此没有电流。这是一种<code>二极管</code>。</p>
+<p>为了代替继电器，我们需要的是一个<strong>能开关电流的东西</strong>。幸运的是，不久之后在 1906 年，美国发明家Lee de Forest在Fleming设计的两个电极之间，加入了<strong>第三个 “控制” 电极</strong>。</p>
+<p><img src="/post/8ddb51d4/%E4%B8%89%E6%9E%81%E7%AE%A1.jpg" alt="三极管"></p>
+<p>向&quot;控制&quot;电极<strong>施加正电荷</strong>，它会<strong>允许电子流动</strong>；但如果<strong>施加负电荷</strong>，它会<strong>阻止电子流动</strong>。因此通过控制线路，可以断开或闭合电路。</p>
+<p>真空管的使用，意味着更快的开关速度和更少的磨损，但容易烧坏。</p>
+</li>
+<li>
+<p>1946 年 <strong>ENIAC</strong>：第一个<strong>电子通用</strong>数值积分计算机。</p>
+</li>
+<li>
+<p>1947 年 <strong>晶体管</strong>出现，使用的是固态的半导体材料，相对真空管更可靠。</p>
+</li>
+<li>
+<p>1950s 空军 ANFSQ-7： 真空管到达计算极限。</p>
+</li>
+<li>
+<p>1957 年 IBM 608： 第一个消费者可购买的晶体管计算机出现。</p>
+<p><code>晶体管</code>的诞生：</p>
+<p>1947 年，贝尔实验室科学家发明了晶体管。一个全新的计算机时代诞生了！</p>
+<p>晶体管，就像之前提过的&quot;继电器&quot;或&quot;真空管&quot;，它是一个开关，可以用控制线路来控制开或关。晶体管有两个电极，电极之间有<code>一种材料</code>隔开它们，这种材料<strong>有时候导电，有时候不导电</strong>，这就是<code>半导体</code>。</p>
+<p>控制线连到一个 “门” 电极，通过改变 “门” 的电荷，我们可以控制半导体材料的<code>导电性</code>，来允许或不允许电流流动。	<img src="https://z3.ax1x.com/2021/08/08/fQjDR1.png" alt="img"></p>
+<p>比起玻璃制成的真空管，晶体管是<strong>固态的</strong>（就是电路元件里三根脚，上边是半圆柱的小黑块），所以更小、更便宜。到了这个计算机时代，我们可以让电路开闭得非常快。</p>
+<p>如今，计算机里的晶体管小于 50 纳米，而一张纸的厚度大概是 10 万纳米。</p>
+</li>
+</ul>
+<h2 id="布尔逻辑与逻辑门">布尔逻辑与逻辑门</h2>
+<h3 id="计算机为什么使用二进制：">计算机为什么使用二进制：</h3>
+<ol>
+<li>计算机的元器件晶体管只有 2 种状态，<strong>通电（1）&amp;断电（0）</strong>，用二进制可直接根据元器件的状态来设计计算机。</li>
+<li>而且，数学中的“布尔代数”分支已经成熟，可以用 True 和 False（可用 1 代表 True，0 代表 False）进行逻辑运算，代替实数进行计算。</li>
+<li>计算的状态越多，信号越容易混淆，影响计算。对于当时每秒运算百万次以上的晶体管，信号混淆是特别让人头疼的。</li>
+</ol>
+<h3 id="布尔代数-布尔代数在计算机中的实现">布尔代数&amp;布尔代数在计算机中的实现</h3>
+<ol>
+<li>
+<p>变量：没有常数，仅 <strong>True 和 False</strong> 这两个变量。</p>
+</li>
+<li>
+<p>三个<code>基本操作</code>：<strong>NOT/AND/OR</strong>。</p>
+</li>
+<li>
+<p>为什么称之为“门”：控制电流流过的路径</p>
+</li>
+</ol>
+<h4 id="1）NOT-操作：">1）NOT 操作：</h4>
+<ol>
+<li>
+<p>命名：称为 <code>NOT 门/非门</code>。</p>
+</li>
+<li>
+<p>作用：<strong>将输入布尔值反转。输入的 True 或 False</strong>，输出为 False 或 True。</p>
+</li>
+<li>
+<p>晶体管的实现方式：</p>
+<p>上面的线当作输出，控制极的线当作输入，如果打开 输入，电流可以流过然后 “接地”，输出就没有电流，所以输出是 off。当输入是 off，电流没法接地，就流过了输出，所以输出是 on。</p>
+<p>如果用水来举例，就像家里的水都从一个大管子流走了，打开淋浴头一点水也没有。（请看我的魔幻画）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|		   |</span><br><span class="line">|		   |______________output</span><br><span class="line">|		    ___________________</span><br><span class="line">  input|--|——————————|--</span><br><span class="line">|		   |</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>
+<p>半导体<strong>通电 True</strong>，则线路接地，<strong>无输出电流</strong>，为 False。</p>
+</li>
+<li>
+<p>半导体<strong>不通电 False</strong>，则输出电流从右边输出，<strong>为 True</strong>。</p>
+</li>
+</ul>
+<p><img src="/post/8ddb51d4/clip_image002.gif" alt="图片"></p>
+<h4 id="2）AND-操作">2）AND 操作</h4>
+<ol>
+<li>
+<p>命名：<code>AND 门/与门</code></p>
+</li>
+<li>
+<p>作用：<strong>由 2 个输入控制输出，仅当 2 个输入 input1 和 input2 都为 True 时，输出才为 True，2 个输入的其余情况，输出均为 False。</strong></p>
+<p>*可以理解为，2 句话（输入）完全没有假的，整件事（输出）才是真的。</p>
+</li>
+</ol>
+<p>真值表：</p>
+<p><img src="/post/8ddb51d4/clip_image004.gif" alt="图片"></p>
+<ol start="3">
+<li>
+<p>用晶体管实现的方式：</p>
+<p><code>串联</code>两个晶体管，仅当 2 个晶体管都通电，输出才有电流（True）</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image006.gif" alt="图片"></p>
+<h4 id="3）OR-操作">3）OR 操作</h4>
+<ol>
+<li>
+<p>命名：OR 门/或门</p>
+</li>
+<li>
+<p>作用：由 2 个输入控制输出，只要其中一个输入为 True，则输出 True。</p>
+</li>
+</ol>
+<p>*有真则真。</p>
+<p><img src="/post/8ddb51d4/clip_image008.gif" alt="图片"></p>
+<ol start="3">
+<li>
+<p>用晶体管实现的方式：</p>
+<p>使用 2 个晶体管，将它们并联到电路中，只要有一个晶体管通电，则输出有电流（True）。</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image010.gif" alt="图片"></p>
+<h3 id="特殊的逻辑运算——异或">特殊的逻辑运算——异或</h3>
+<ol>
+<li>
+<p>命名：XOR 门/异或门</p>
+</li>
+<li>
+<p>作用：<strong>2 个输入控制一个输出。当 2 个输入均为 True 时，输出 False，其余情况与 OR 门相同。</strong></p>
+<p>*不同则真。</p>
+<p>*打个不恰当的比喻，就像直人们认为1和1，0和0，TTL和PPL们是无法拥有幸福的，至少在他们的yy里。</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image012.gif" alt="图片"></p>
+<ol start="3">
+<li>
+<p>图示：</p>
+<p>因为XOR的真值表除了第一行都和OR差不多，所以我们只需要把全是1的情况从满足OR门的情况里踢出去。</p>
+<p>先用一个 OR 门，将其与 AND 门并联，AND 门与 NOT 门串联，最后让 NOT 与 AND 门并联，获得输出。</p>
+<p>下图是两个1的情况：</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image014.gif" alt="图片"></p>
+<h3 id="逻辑门的符号表示">逻辑门的符号表示</h3>
+<ol>
+<li>作用：将逻辑门简化，将逻辑门用于构建更大的组件，而不至于太复杂。</li>
+<li>图示：</li>
+</ol>
+<ul>
+<li>
+<p>非门：用三角形+圆圈表示（头顶有球球的松树）</p>
+</li>
+<li>
+<p>与门：用 D 型图案表示（半个胶囊）</p>
+</li>
+<li>
+<p>或门：用类似 D 向右弯曲的图案表示（一个笑脸:）</p>
+</li>
+<li>
+<p>异或门：用或门+一个圆弧表示（是一个带双下巴的笑脸 :)）</p>
+</li>
+</ul>
+<p><img src="/post/8ddb51d4/clip_image016.gif" alt="图片"><img src="/post/8ddb51d4/clip_image018.gif" alt="图片"></p>
+<p><img src="/post/8ddb51d4/clip_image020.gif" alt="图片"><img src="/post/8ddb51d4/clip_image022.gif" alt="图片"></p>
+<h2 id="二进制">二进制</h2>
+<h3 id="二进制的原理，存储单元-MB-GB-TB-解释">二进制的原理，存储单元 MB/GB/TB 解释</h3>
+<h4 id="计算机中的二进制表示：">计算机中的二进制表示：</h4>
+<p>单个数字 1 或 0，<strong>1 位二进制数字命名为位(bit),也称 1 比特</strong>。</p>
+<h4 id="字节（byte）的概念："><strong>字节（byte）的概念</strong>：</h4>
+<p>1 byte=8 bit，即 <strong>1 byte 代表 8 位数字</strong>。最早期的电脑为八位的，即以八位为单位处理数据。为了方便，将八位数字命名为 1 字节（1 byte）.</p>
+<h4 id="十进制与二进制的区别：">十进制与二进制的区别：</h4>
+<ul>
+<li>十进制有 10 个数字，0-9，<strong>逢 10 进 1</strong>（不存在 10 这个数字），则每向左进一位，数字大 10 倍。</li>
+<li>二进制有 2 个数字，0-1，<strong>逢 2 进 1</strong>,（不存在 2 这个数字），则每向左进一位，数字大 2 倍。</li>
+</ul>
+<h4 id="如何进行二进制与十进制联系起来：">如何进行二进制与十进制联系起来：</h4>
+<p>将十进制与二进制的位数提取出来，编上单位：</p>
+<p>eg.二进制的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1011</mn><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>2</mn><mn>0</mn></msup><mo>+</mo><mn>1</mn><mo>×</mo><msup><mn>2</mn><mn>1</mn></msup><mo>+</mo><mn>0</mn><mo>×</mo><msup><mn>2</mn><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo>×</mo><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">1011=1\times2^0 + 1\times2^1 + 0\times2^2 + 1\times2^3= 11</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1011</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">11</span></span></span></span>​（从右往左数）</p>
+<p>eg.十进制的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1045</mn><mo>=</mo><mn>1</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup><mo>+</mo><mn>0</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>2</mn></msup><mo>+</mo><mn>4</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>1</mn></msup><mo>+</mo><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">1045= 1\times10^3 + 0\times10^2 + 4\times10^1 + 5\times10^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1045</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="二进制的运算：">二进制的运算：</h4>
+<p>相同的位数相加，逢 2 进 1</p>
+<p><img src="/post/8ddb51d4/clip_image028.gif" alt="图片"></p>
+<h4 id="byte-在电脑中的单位换算：">byte 在电脑中的单位换算：</h4>
+<p>1 KB=2^10 byte = 1024 byte(用于数据流时) =1000 byte(用于存储时)</p>
+<p>1 TB=1000 GB</p>
+<p>1 GB=十亿字节=1000 MB=10^6 KB</p>
+<h4 id="32-位与-64-位电脑的区别">32 位与 64 位电脑的区别</h4>
+<p>32 位的最大数为 43 亿左右。</p>
+<p>32 位能表示的数字：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>​ 到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^{32}-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>​，一共<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">32</span></span></span></span></span></span></span></span></span></span></span></span>​​个数。</p>
+<p>64 位的最大数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">9.2\times10^{18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9.2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">18</span></span></span></span></span></span></span></span></span></span></span></span>​</p>
+<h3 id="正数、负数、正数、浮点数的表示">正数、负数、正数、浮点数的表示</h3>
+<h4 id="1）计算机中表示数字的方法">1）计算机中表示数字的方法</h4>
+<ol>
+<li>
+<p>整数：</p>
+<p>表示方法:</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>第 1 位：表示正负 1 是负，0 是正</strong>（补码）</p>
+</li>
+<li>
+<p>其余 31 位/63 位： 表示实数</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>浮点数（Floating Point Numbers）：</p>
+<p>定义：<strong>小数点可在数字间浮动的数</strong>（非整数）</p>
+<p>表示方法：IEEE 754 标准下</p>
+<p>用类似科学计数法的方式，存储十进制数值</p>
+<ul>
+<li>浮点数=有效位数*指数</li>
+<li>32 位数字中：第 1 位表示正负，第 2-9 位存指数。剩下 23 位存有效位数</li>
+</ul>
+<p>eg.  625.9=0.6259（有效位数）<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\times10^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">×</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>​（指数）</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/image-20210808154101251.png" alt="image-20210808154101251"></p>
+<h3 id="用来表示字符的ASCⅡ码（重要）">用来表示字符的ASCⅡ码（重要）</h3>
+<ol>
+<li>
+<p>全称：美国信息交换标准代码</p>
+</li>
+<li>
+<p>作用：<strong>用数字给英文字母及符号编号</strong></p>
+</li>
+<li>
+<p>内容：7 位代码，可存放 128 个不同的值。</p>
+</li>
+<li>
+<p>图示：</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image030.gif" alt="图片"></p>
+<h3 id="UNICODE，统一所有字符编码的标准">UNICODE，统一所有字符编码的标准</h3>
+<ol>
+<li>
+<p>诞生背景：1992 诞生，随着计算机在亚洲兴起，需要解决 ASCⅡ不够表达所有语言的问题。</p>
+<p>为提高代码的互用性，而诞生的编码标准。</p>
+</li>
+<li>
+<p>内容：UNICODE 为 17 组的 16 位数字，有超过 100 万个位置，可满足所有语言的字符需求。</p>
+</li>
+</ol>
+<h2 id="算术逻辑单元">算术逻辑单元</h2>
+<h3 id="什么是算术逻辑单元">什么是算术逻辑单元</h3>
+<p>1 命名：简称 <strong>ALU</strong>，<strong>A</strong>rithmetic&amp;<strong>L</strong>ogic <strong>U</strong>nit</p>
+<p>2 组成：ALU 有 2 个单元，<strong>1 个算术单元和 1 个逻辑单元</strong>（Arithmetic Unit 和 Logic Unit）</p>
+<p>3 作用：计算机中<strong>负责运算</strong>的组件，<strong>处理数字/逻辑运算的最基本单元</strong>。</p>
+<h3 id="算术单元">算术单元</h3>
+<p>它负责计算机里的所有数字操作，比如加减法，它还做很多其他事情，比如给某个数字+1，这叫增量运算，我们之后会说。</p>
+<p>现在要理解它是如何进行计算的，换句话说——如何把两个数字相加？</p>
+<p>我们可以用单个晶体管一个个拼，把这个电路做出来，但很快就会复杂得难以理解。所以与其用晶体管，我们不如用更高层的抽象——逻辑门来做。</p>
+<p>最简单的加法电路，是拿 2 个 bit 加在一起（bit 是 0 或 1），这就是<code>半加器</code>。要想加更多位，我们就要组装<code>全加器</code>。</p>
+<p>所以算术单元的雏形在我们脑海里出现了：</p>
+<p>1）基本组件：</p>
+<ul>
+<li>
+<p>由半加器、全加器组成</p>
+</li>
+<li>
+<p>半加器、全加器由 AND、OR、NOT、XOR 门组成</p>
+</li>
+</ul>
+<p>2）加法运算</p>
+<ol>
+<li>
+<p>组件：AND、OR、NOT、XOR 门</p>
+</li>
+<li>
+<p>元素：输入 A，输入 B，输出（均为 1 个 bit，即 0 或 1）</p>
+</li>
+<li>
+<p>半加器：</p>
+</li>
+</ol>
+<ul>
+<li>作用：用于计算个位的数字加减。
+<ul>
+<li>输入：A，B</li>
+<li>输出：总和（SUM），进位（CARRY）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/post/8ddb51d4/clip_image032.gif" alt="图片"></p>
+<ul>
+<li>抽象（把半加器封装成一个单独组件）：</li>
+</ul>
+<p><img src="/post/8ddb51d4/clip_image034.gif" alt="图片"></p>
+<ol start="4">
+<li>
+<p><strong>三位</strong>全加器：</p>
+<p>作用：用于计算超过 1 位的加法（ex：1+1+1），由于涉及进位，因此有 3 个输入（C 充当进位）。</p>
+</li>
+</ol>
+<p><img src="/post/8ddb51d4/clip_image036.gif" alt="图片"></p>
+<p>​	原理图示：</p>
+<p><img src="/post/8ddb51d4/clip_image038.gif" alt="图片"></p>
+<p>3）如何用半加器与全加器做 <strong>8 位数的加法</strong></p>
+<p>说明：以 8 位行波加法器为例</p>
+<ol>
+<li>
+<p>用半加器处理第 1 位数（个位）的加法，得到的和为结果的第 1 位。</p>
+</li>
+<li>
+<p>将输出的进位，输入到第 2 位用的全加器的输入 C 中。</p>
+</li>
+<li>
+<p>将第 2 位的 2 个数用全加器计算，得到的和为结果的第 2 位（sum）。</p>
+</li>
+<li>
+<p>将第 2 位计算的进位连接到百位的全加器输入 C 中。</p>
+</li>
+<li>
+<p>在第 3-8 位上，循环第 3-4 步的操作。</p>
+</li>
+</ol>
+<p>*现在电脑使用的加法器叫“<strong>超前进位加法器</strong>”</p>
+<p><img src="/post/8ddb51d4/clip_image040.gif" alt="图片"></p>
+<p>4）算术单元支持的<strong>其他运算</strong></p>
+<p>便宜的ALU没有乘除法单元。</p>
+<p><img src="/post/8ddb51d4/clip_image042.gif" alt="图片"></p>
+<h3 id="溢出的概念">溢出的概念</h3>
+<p>内容：在有限的空间内，无法存储位数过大的数，则称为溢出。</p>
+<p>比如吃豆人的第256关会乱码。</p>
+<p>说明：第 8 位的进位如果为 1，则无法存储，此时容易引发错误，所以应该尽量避免溢出。</p>
+<h3 id="逻辑单元">逻辑单元</h3>
+<p>作用：执行逻辑操作，如 NOT、AND、OR 等操作，以及做简单的数值测试。</p>
+<h3 id="ALU-的抽象">ALU 的抽象</h3>
+<p>1）作用：ALU 的抽象让工程师不再考虑逻辑门层面的组成，简化工作。</p>
+<p>2）图示：像一个大“V”。</p>
+<p><img src="/post/8ddb51d4/clip_image044.gif" alt="图片"></p>
+<p>3）说明：</p>
+<p>图示内容包括：</p>
+<ul>
+<li>输入： <strong>A，B</strong>（都是8 bits），以及<strong>4位的操作代码</strong></li>
+<li>输出：<strong>8位的结果</strong> 和 一堆<strong>1位的标志</strong>（flags）</li>
+<li>标志：<strong>溢出标志、零标志和负数标志</strong>等（这三个是都有的）</li>
+</ul>
+<p><img src="/post/8ddb51d4/clip_image046.gif" alt="图片"></p>
+<p>到这里就很突兀地结束了。这篇文章只做了第2-5集的内容，计划做笔记到第11集左右，挑着记。</p>
+<p>👋下次见。👋</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://shimo.im/docs/PJAUY30F1uYksv0h/">https://shimo.im/docs/PJAUY30F1uYksv0h/</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Starbo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://starbovo.github.io/post/8ddb51d4.html">https://starbovo.github.io/post/8ddb51d4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://starbovo.github.io" target="_blank">STARBO's BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E7%94%B5/">数电</a></div><div class="post_share"><div class="social-share" data-image="https://z3.ax1x.com/2021/08/08/fQ2IFe.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/8089dd90.html"><img class="prev-cover" src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9922720e0cf3d7ca625d2e8df61fbe096a63a9a5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">电路笔记（二）</div></div></a></div><div class="next-post pull-right"><a href="/post/11119f15.html"><img class="next-cover" src="https://z3.ax1x.com/2021/08/06/fm4pM6.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">利用Hexo+Github搭建个人博客</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2022/06/19/Xjcb28.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Starbo</div><div class="author-info__description">未来EE工程师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=nItm-FTykd_c0e7DgC47eBsmJUUk9ONG&amp;noverify=0"><i class="fab fa-qq"></i><span>加俺好友</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/starbovo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1598718223@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Crash Course Computer Science笔记（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">电子计算机的发展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E9%80%BB%E8%BE%91%E4%B8%8E%E9%80%BB%E8%BE%91%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">布尔逻辑与逻辑门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%8C%E8%BF%9B%E5%88%B6%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">计算机为什么使用二进制：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0-%E5%B8%83%E5%B0%94%E4%BB%A3%E6%95%B0%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">布尔代数&amp;布尔代数在计算机中的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89NOT-%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1）NOT 操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89AND-%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2）AND 操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89OR-%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">3）OR 操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E2%80%94%E2%80%94%E5%BC%82%E6%88%96"><span class="toc-number">1.2.3.</span> <span class="toc-text">特殊的逻辑运算——异或</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E9%97%A8%E7%9A%84%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text">逻辑门的符号表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text">二进制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83-MB-GB-TB-%E8%A7%A3%E9%87%8A"><span class="toc-number">1.3.1.</span> <span class="toc-text">二进制的原理，存储单元 MB&#x2F;GB&#x2F;TB 解释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%EF%BC%9A"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">计算机中的二进制表示：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%EF%BC%88byte%EF%BC%89%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">字节（byte）的概念：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">十进制与二进制的区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E5%8D%81%E8%BF%9B%E5%88%B6%E8%81%94%E7%B3%BB%E8%B5%B7%E6%9D%A5%EF%BC%9A"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">如何进行二进制与十进制联系起来：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="toc-number">1.3.1.5.</span> <span class="toc-text">二进制的运算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#byte-%E5%9C%A8%E7%94%B5%E8%84%91%E4%B8%AD%E7%9A%84%E5%8D%95%E4%BD%8D%E6%8D%A2%E7%AE%97%EF%BC%9A"><span class="toc-number">1.3.1.6.</span> <span class="toc-text">byte 在电脑中的单位换算：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-%E4%BD%8D%E4%B8%8E-64-%E4%BD%8D%E7%94%B5%E8%84%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.3.1.7.</span> <span class="toc-text">32 位与 64 位电脑的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E6%95%B0%E3%80%81%E8%B4%9F%E6%95%B0%E3%80%81%E6%AD%A3%E6%95%B0%E3%80%81%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">正数、负数、正数、浮点数的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%AD%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">1）计算机中表示数字的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%9D%A5%E8%A1%A8%E7%A4%BA%E5%AD%97%E7%AC%A6%E7%9A%84ASC%E2%85%A1%E7%A0%81%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">用来表示字符的ASCⅡ码（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UNICODE%EF%BC%8C%E7%BB%9F%E4%B8%80%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E7%9A%84%E6%A0%87%E5%87%86"><span class="toc-number">1.3.4.</span> <span class="toc-text">UNICODE，统一所有字符编码的标准</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83"><span class="toc-number">1.4.</span> <span class="toc-text">算术逻辑单元</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83"><span class="toc-number">1.4.1.</span> <span class="toc-text">什么是算术逻辑单元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E5%8D%95%E5%85%83"><span class="toc-number">1.4.2.</span> <span class="toc-text">算术单元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.3.</span> <span class="toc-text">溢出的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83"><span class="toc-number">1.4.4.</span> <span class="toc-text">逻辑单元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALU-%E7%9A%84%E6%8A%BD%E8%B1%A1"><span class="toc-number">1.4.5.</span> <span class="toc-text">ALU 的抽象</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/1f3d2742.html" title="verilog串口二进制转字符"><img src="https://my.eng.utah.edu/~nmcdonal/Tutorials/BCDTutorial/AlgorithmTable.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="verilog串口二进制转字符"/></a><div class="content"><a class="title" href="/post/1f3d2742.html" title="verilog串口二进制转字符">verilog串口二进制转字符</a><time datetime="2022-08-02T16:00:00.000Z" title="发表于 2022-08-03 00:00:00">2022-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/8b1131b1.html" title="频谱谐波峰值检测"><img src="https://pic2.zhimg.com/v2-dd64cd6cdc9a4f656de4f9a5ce64b416_r.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="频谱谐波峰值检测"/></a><div class="content"><a class="title" href="/post/8b1131b1.html" title="频谱谐波峰值检测">频谱谐波峰值检测</a><time datetime="2022-07-19T16:00:00.000Z" title="发表于 2022-07-20 00:00:00">2022-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b4a5ec5d.html" title="捣鼓STM32nucleo（二）"><img src="https://s1.ax1x.com/2022/07/05/jUSRdU.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="捣鼓STM32nucleo（二）"/></a><div class="content"><a class="title" href="/post/b4a5ec5d.html" title="捣鼓STM32nucleo（二）">捣鼓STM32nucleo（二）</a><time datetime="2022-07-06T16:00:00.000Z" title="发表于 2022-07-07 00:00:00">2022-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/84b30085.html" title="捣鼓STM32nucleo（一）"><img src="https://s1.ax1x.com/2022/07/05/jUSRdU.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="捣鼓STM32nucleo（一）"/></a><div class="content"><a class="title" href="/post/84b30085.html" title="捣鼓STM32nucleo（一）">捣鼓STM32nucleo（一）</a><time datetime="2022-07-04T16:00:00.000Z" title="发表于 2022-07-05 00:00:00">2022-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/424b43b4.html" title="DSP入门笔记（一）"><img src="http://www.hellodsp.com/d/file/2018-11-21/84883ba9c1391f290ccfc7caae091fe9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DSP入门笔记（一）"/></a><div class="content"><a class="title" href="/post/424b43b4.html" title="DSP入门笔记（一）">DSP入门笔记（一）</a><time datetime="2022-06-27T16:00:00.000Z" title="发表于 2022-06-28 00:00:00">2022-06-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://z3.ax1x.com/2021/08/08/fQ2IFe.png')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Starbo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Welcome to my BLOG!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'aszU4uiVyVhcnLnrmcPm3hEN-gzGzoHsz',
+      appKey: 'N9akIc8L6AiC3mQETEyFxCaD',
+      placeholder: '记得留下你的昵称和邮箱，可以快速收到回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '//i0.hdslb.com/bfs/emote/',
+      emojiMaps: {"2020":"dc709fac0d361370bcf0d36d32adb97df7c95824.png","tv_白眼":"c1d59f439e379ee50eef488bcb5e5378e5044ea4.png","tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_难过":"87f46748d3f142ebc6586ff58860d0e2fc8263ba.png","tv_生气":"26702dcafdab5e8225b43ffd23c94ac1ff932654.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_斜眼笑":"911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_疑问":"0793d949b18d7be716078349c202c15ff166f314.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_鼓掌":"1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png","tv_抠鼻":"c666f55e88d471e51bbd9fab9bb308110824a6eb.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_调皮":"b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png","tv_笑哭":"1abc628f6d4f4caf9d0e7800878f4697abbc8273.png","tv_晕":"5443c22b4d07fb1907ccc610c8e6db254f2461b7.png","tv_点赞":"f85c354995bd99e28fc76c869bfe42ba6438eff4.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_睡着":"8b196675b53af58264f383c50ad0945048290b33.png","tv_色":"61822c7e9aae5da76475e7892534545336b23a6f.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_无奈":"ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_流汗":"cead1c351ab8d79e9f369605beb90148db0fbed3.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_抓狂":"fe31c08edad661d63762b04e17b8d5ae3c71a757.png","tv_黑人问号":"45821a01f51bc867da9edbaa2e070410819a95b2.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_打脸":"56ab10b624063e966bfcb76ea5dc4794d87dfd47.png","tv_闭嘴":"c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png","tv_鄙视":"6e72339f346a692a495b123174b49e4e8e781303.png","tv_腼腆":"89712c0d4af73e67f89e35cbc518420380a7f6f4.png","tv_馋":"fc7e829b845c43c623c8b490ee3602b7f0e76a31.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_生病":"8b0ec90e6b86771092a498c54f09fc94621c1900.png","tv_流鼻血":"c32d39db2737f89b904ca32700d140a9241b0767.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_流泪":"7e71cde7858f0cd50d74b0264aa26db612a8a167.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_皱眉":"72ccad6679fea0d14cce648b4d818e09b8ffea2d.png","tv_鬼脸":"0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png","tv_调侃":"4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png","tv_目瞪口呆":"0b8cb81a68de5d5365212c99375e7ace3e7891b7.png","2233娘_大笑":"16b8794be990cefa6caeba4d901b934a227ee3b8.png","2233娘_疑问":"0b41f509351958dbb63d472fec0132d1bd03bd14.png","2233娘_吃惊":"d1628c43d35b1530c0504a643ff80b6189fa0a43.png","2233娘_汗":"247cd9df8cdf84b18368c21e3b2dd374e84c0927.png","2233娘_大哭":"476a2a60f6e337b8c0697a592e0aa82781f6b33b.png","2233娘_困惑":"714eeb4eae0d0933b4ff08b7df788b1982f6b940.png","2233娘_耶":"d7178e258a0efc969b65ccc2b1322fb235f5dff4.png","2233娘_怒":"f31953119c51b9748016440ac0b632f779929b37.png","2233娘_卖萌":"ea893aa25355de95ab4f03c2dad3f0c58d0c159e.png","2233娘_委屈":"d9d0bf9d358af8d5761093ec66d4e3f60d963a63.png","2233娘_郁闷":"485203fe7100f2c8fc40b2800a18fe20b35f2f1a.png","2233娘_第一":"3754ee6e5985bd0bd7dfb668981f2a8733398ebd.png","2233娘_喝水":"695bf5429472049b52c1e0de586f8a2511195a23.png","2233娘_吐魂":"e999af499edf38a91ca68b1a9d2f97042c1d6734.png","2233娘_无言":"fdb5870f32cfaf7949e0f88a13f6feba4a48b719.png","热词系列_增加":"142409b595982b8210b2958f3d340f3b47942645.png","热词系列_泪目":"bba3703ab90b7d16fe9dbcb85ed949db687f8331.png","热词系列_保护":"55f8f6445ca7c3170cdfc5b16036abf639ce9b57.png","热词系列_害怕":"d77e2de26da143249f0c0ad7a608c27152c985bf.png","热词系列_爱了爱了":"2a165b555ba20391316366c664ed7891883dc5aa.png","热词系列_问号":"c1d1e76c12180adc8558f47006fe0e7ded4154bb.png","热词系列_吹爆":"b528220f9c37256ed6a37f05bf118e44b08b81e5.png","热词系列_三连":"21f15fe11b7a84d2f2121c16dec50a4e4556f865.png","热词系列_可以":"e08543c71202b36c590094417fcfbb80c3506cd8.png","热词系列_打卡":"a9cf77c78e1b9b40aa3ed4862402fba008ee2f51.png","热词系列_妙啊":"0e98299d7decf5eaffad854977946075c3e91cb8.png","热词系列_这次一定":"a01ca28923daa7cc896c42f27deb4914e20dd572.png","热词系列_AWSL":"c37f88cf799f9badf9d84b7671dc3dd98c0fc0c2.png","热词系列_递话筒":"98e6950e39fbb4dd1c576042063ca632074070ba.png","热词系列_你细品":"535e00658e7e47966f154d3a167fa2365ebc4321.png","热词系列_咕咕":"d8065c2e7ce48c929317a94553499a46fecc262a.png","热词系列_标准结局":"3de98174b510cf7dc5fd1bd08c5d881065e79137.png","热词系列_危":"5cc6c3357c4df544dd8de9d5c5c0cec97c7c9a56.png","热词系列_张三":"255a938f39cea625032b6650036b31aa26c50a3c.png","热词系列_害":"cbe798a194612958537c5282fcca7c3bcd2aa15c.png","热词系列_我裂开了":"29bd57ec4e8952880fea6c9e47aee924e91f10c4.png","热词系列_有内味了":"7ca61680a905b5b6e2e335c630e725b648b03b4d.png","热词系列_猛男必看":"c97064450528a0e45c7e7c365a15fbb13fd61d8c.png","热词系列_奥力给":"c9b8683827ec6c00fea5327c9bec14f581cef2aa.png","热词系列_我哭了":"9e0b3877d649aaf6538fbdd3f937e240a9d808e4.png","热词系列_高产":"9db817cba4a7f4a42398f3b2ec7c0a8e0c247c42.png","热词系列_我酸了":"a8cbf3f6b8cd9377eeb15b9172f3cd683b2e4650.png","热词系列_真香":"e68497c775feaac1c3b1a6cd63a50cfb11b767c4.png","热词系列_我全都要":"d424d1ad8d14c1c9b8367842bc68c658b9229bc1.png","热词系列_神仙UP":"a49e0d0db1e7d35a0f7411be13208951ab448f03.png","热词系列_你币有了":"84820c2b147a8ca02f3c4006b63f76c6313cbfa0.png","热词系列_不愧是你":"9ff2e356797c57ee3b1675ade0883d2d2247be9b.png","热词系列_锤":"35668cc12ae25b9545420e4a85bf21a0bfc03e5d.png","热词系列_秀":"50782fbf5d9b7f48f9467b5c53932981e321eedc.png","热词系列_爷关更":"faad40c56447f1f8abcb4045c17ce159d113d1fd.png","热词系列_有生之年":"f41fdafe2d0fbb8e8bc1598d2cf37e355560103a.png","热词系列_镇站之宝":"24e7a6a6e6383c987215fb905e3ee070aca259b5.png","热词系列_我太男了":"a523f3e4c63e4db1232365765d0ec452f83be97e.png","热词系列_完结撒花":"ea9db62ff5bca8e069cd70c4233353a802835422.png","热词系列_大师球":"f30089248dd137c568edabcb07cf67e0f6e98cf3.png","热词系列_知识盲区":"ccc94600b321a28116081e49ecedaa4ee8728312.png","热词系列_“狼火”":"33ccd3617bfa89e9d1498b13b7542b63f163e5de.png","加油武汉":"eb966aaa5b690d3f9308a9f936f5b5a72a7f956b.png","口罩":"3ad2f66b151496d2a5fb0a8ea75f32265d778dd3.png","鸡腿":"c7860392815d345fa69c4f00ef18d67dccfbd574.png","微笑":"685612eadc33f6bc233776c6241813385844f182.png","笑":"81edf17314cea3b48674312b4364df44d5c01f17.png","呲牙":"b5a5898491944a4268360f2e7a84623149672eb6.png","OK":"4683fd9ffc925fa6423110979d7dcac5eda297f4.png","星星眼":"63c9d1a31c0da745b61cdb35e0ecb28635675db2.png","哦呼":"362bded07ea5434886271d23fa25f5d85d8af06c.png","嫌弃":"de4c0783aaa60ec03de0a2b90858927bfad7154b.png","喜欢":"8a10a4d73a89f665feff3d46ca56e83dc68f9eb8.png","酸了":"92b1c8cbceea3ae0e8e32253ea414783e8ba7806.png","大哭":"2caafee2e5db4db72104650d87810cc2c123fc86.png","害羞":"9d2ec4e1fbd6cb1b4d12d2bbbdd124ccb83ddfda.png","无语":"44667b7d9349957e903b1b62cb91fb9b13720f04.png","疑惑":"b7840db4b1f9f4726b7cb23c0972720c1698d661.png","调皮":"8290b7308325e3179d2154327c85640af1528617.png","喜极而泣":"485a7e0c01c2d70707daae53bee4a9e2e31ef1ed.png","奸笑":"bb84906573472f0a84cebad1e9000eb6164a6f5a.png","偷笑":"6c49d226e76c42cd8002abc47b3112bc5a92f66a.png","大笑":"ca94ad1c7e6dac895eb5b33b7836b634c614d1c0.png","阴险":"ba8d5f8e7d136d59aab52c40fd3b8a43419eb03c.png","捂脸":"6921bb43f0c634870b92f4a8ad41dada94a5296d.png","囧":"12e41d357a9807cc80ef1e1ed258127fcc791424.png","呆":"33ad6000d9f9f168a0976bc60937786f239e5d8c.png","抠鼻":"cb89184c97e3f6d50acfd7961c313ce50360d70f.png","惊喜":"0afecaf3a3499479af946f29749e1a6c285b6f65.png","惊讶":"f8e9a59cad52ae1a19622805696a35f0a0d853f3.png","笑哭":"c3043ba94babf824dea03ce500d0e73763bf4f40.png","妙啊":"b4cb77159d58614a9b787b91b1cd22a81f383535.png","doge":"bba7c12aa51fed0199c241465560dfc2714c593e.png","滑稽":"d15121545a99ac46774f1f4465b895fe2d1411c3.png","吃瓜":"4191ce3c44c2b3df8fd97c33f85d3ab15f4f3c84.png","打call":"431432c43da3ee5aab5b0e4f8931953e649e9975.png","点赞":"1a67265993913f4c35d15a6028a30724e83e7d35.png","鼓掌":"895d1fc616b4b6c830cf96012880818c0e1de00d.png","尴尬":"cb321684ed5ce6eacdc2699092ab8fe7679e4fda.png","冷":"cb0ebbd0668640f07ebfc0e03f7a18a8cd00b4ed.png","灵魂出窍":"43d3db7d97343c01b47e22cfabeca84b4251f35a.png","委屈":"d2f26cbdd6c96960320af03f5514c5b524990840.png","傲娇":"010540d0f61220a0db4922e4a679a1d8eca94f4e.png","疼":"905fd9a99ec316e353b9bd4ecd49a5f0a301eabf.png","吓":"9c10c5ebc7bef27ec641b8a1877674e0c65fea5d.png","生病":"0f25ce04ae1d7baf98650986454c634f6612cb76.png","吐":"06946bfe71ac48a6078a0b662181bb5cad09decc.png","嘘声":"e64af664d20716e090f10411496998095f62f844.png","捂眼":"c5c6d6982e1e53e478daae554b239f2b227b172b.png","思考":"cfa9b7e89e4bfe04bbcd34ccb1b0df37f4fa905c.png","再见":"fc510306bae26c9aec7e287cdf201ded27b065b9.png","翻白眼":"eba54707c7168925b18f6f8b1f48d532fe08c2b1.png","哈欠":"888d877729cbec444ddbd1cf4c9af155a7a06086.png","奋斗":"bb2060c15dba7d3fd731c35079d1617f1afe3376.png","墨镜":"3a03aebfc06339d86a68c2d893303b46f4b85771.png","撇嘴":"531863568e5668c5ac181d395508a0eeb1f0cda4.png","难过":"a651db36701610aa70a781fa98c07c9789b11543.png","抓狂":"4c87afff88c22439c45b79e9d2035d21d5622eba.png","生气":"3195714219c4b582a4fb02033dd1519913d0246d.png","干杯":"8da12d5f55a2c7e9778dcc05b40571979fe208e6.png","爱心":"ed04066ea7124106d17ffcaf75600700e5442f5c.png","锦鲤":"643d6c19c8164ffd89e3e9cdf093cf5d773d979c.png","胜利":"b49fa9f4b1e7c3477918153b82c60b114d87347c.png","加油":"c7aaeacb21e107292d3bb053e5abde4a4459ed30.png","保佑":"fafe8d3de0dc139ebe995491d2dac458a865fb30.png","抱拳":"89516218158dbea18ab78e8873060bf95d33bbbe.png","响指":"1b5c53cf14336903e1d2ae3527ca380a1256a077.png","支持":"3c210366a5585706c09d4c686a9d942b39feeb50.png","拥抱":"41780a4254750cdaaccb20735730a36044e98ef3.png","怪我咯":"07cc6077f7f7d75b8d2c722dd9d9828a9fb9e46d.png","跪了":"f2b3aee7e521de7799d4e3aa379b01be032698ac.png","黑洞":"e90ec4c799010f25391179118ccd9f66b3b279ba.png","老鼠":"8e6fb491eb1bb0d5862e7ec8ccf9a3da12b6c155.png","福到了":"5de5373d354c373cf1617b6b836f3a8d53c5a655.png"},
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="/img/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.js"></script>
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?starbovo";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
+            var git_user ="starbovo";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>
