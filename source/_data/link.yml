@@ -1,11 +1,53 @@
-- class_name: 常用链接
-  class_desc: 点击直达
+- class_name: 朋友圈
+  class_desc: 一些大佬朋友
+  link_list: 
+   - name: 洛神的博客
+     link: https://www.luoshen.pro/
+     avatar: http://www.luoshen.pro/wp-content/uploads/2021/07/LinDaiyv.jpg
+     descr: 翩若惊鸿，婉若游龙
+   - name: Lerogo
+     link: https://blog.lerogo.com/
+     avatar: https://cdn.blog.lerogo.com/usr/uploads/index/logo%E5%B0%8F%E6%96%87%E5%AD%97.png
+     descr: 海浪海浪，长风破浪
+   - name: 翎羽/匿名
+     link: https://miko.pw/
+     avatar: https://r2.01r.cc/2023/01/05/357cb4086d08fc2931b7b6db8aa3589e.webp
+     descr: 「生而自由，爱而无畏」
+- class_name: 工具网站
+  class_desc: 坐俺的宇宙飞船过去
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-tw/
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
       descr: hexo老家
-
+    - name: butterfly主题站点
+      link: https://butterfly.js.org/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 找butterfly帮助文档的好地方
+    - name: 电光20级网
+      link: https://dgxg.njust.edu.cn/tzgg_12969/list.htm
+      avatar: https://z3.ax1x.com/2021/08/06/fevvlD.png
+      descr: 这不常用啥常用
+    - name: falstad
+      link: https://www.falstad.com/circuit/circuitjs.html
+      avatar: https://img2.baidu.com/it/u=2478633162,2515186533&fm=26&fmt=auto&gp=0.jpg
+      descr: 一个简单的电路仿真网站
+    - name: easyEDA
+      link: https://easyeda.com/editor?authenticate=force#
+      avatar: https://img2.baidu.com/it/u=2478633162,2515186533&fm=26&fmt=auto&gp=0.jpg
+      descr: 堪比multisim的仿真网站
+    - name: LaTeX公式编辑器
+      link: https://www.latexlive.com/home
+      avatar: https://img2.baidu.com/it/u=2478633162,2515186533&fm=26&fmt=auto&gp=0.jpg
+      descr: 支持图片转公式
+    - name: nandgame
+      link: https://nandgame.com/
+      avatar: https://img2.baidu.com/it/u=2478633162,2515186533&fm=26&fmt=auto&gp=0.jpg
+      descr: 从头开始构建计算机，很有趣的游戏
+    - name: wolframalpha
+      link: https://www.wolframalpha.com/
+      avatar: https://img2.baidu.com/it/u=2478633162,2515186533&fm=26&fmt=auto&gp=0.jpg
+      descr: 不介绍了，牛逼网站
 - class_name: 社交网站
   class_desc: 快速导航
   link_list:
@@ -13,6 +55,10 @@
       link: https://www.csdn.net/
       avatar: https://img0.baidu.com/it/u=2630584108,3667710027&fm=26&fmt=auto&gp=0.jpg
       descr: 技术交流必备
+    - name: 蒙古上单统治之站
+      link: https://www.bilibili.com/
+      avatar: https://img2.baidu.com/it/u=1365523629,784313864&fm=15&fmt=auto&gp=0.jpg
+      descr: 不介绍了
     - name: Weibo
       link: https://www.weibo.com/
       avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png

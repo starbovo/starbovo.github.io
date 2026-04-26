@@ -1,11 +1,12 @@
 ---
-layout:
 title: 大物实验MOOC课后题整理
 date: 2021/6/28
-cover: https://img2.baidu.com/it/u=1827941262,3618247752&fm=26&fmt=auto&gp=0.jpg
-tags: 
-categories: 杂课笔记整理
+cover: 'https://img2.baidu.com/it/u=1827941262,3618247752&fm=26&fmt=auto&gp=0.jpg'
+categories: 乱七八糟笔记整理
 description: 为了方便复习而写，自己复制的。
+abbrlink: 26c40602
+layout:
+tags:
 ---
 
 

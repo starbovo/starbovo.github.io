@@ -6,7 +6,7 @@ comments:
 tags: 
   - C++
   - 算法
-categories: C++
+categories: C/C++
 description: 非常简单，仅作参考
 cover: https://img1.baidu.com/it/u=4170950205,4151438384&fm=26&fmt=auto&gp=0.jpg
 swiper_index: 2 #置顶轮播图顺序，非负整数，数字越大越靠前
