@@ -33,7 +33,7 @@ meta(name="theme-color" content=themeColor)
 include ./head/Open_Graph.pug
 
 !=favicon_tag(theme.favicon || config.favicon)
-//- link(rel="canonical" href=urlNoIndex())  // Temporary fix for Hexo 8
+link(rel="canonical" href=urlNoIndex())
 
 //- 預解析
 !=partial('includes/head/preconnect', {}, {cache: true})
@@ -72,6 +72,6 @@ if theme.blog_title_font &&　theme.blog_title_font.font_link
 include ./head/config_site.pug
 include ./head/noscript.pug
 
-//- !=fragment_cache('injectHeadJs', function(){return inject_head_js()})  // Temporary fix for Hexo 8
+!=fragment_cache('injectHeadJs', function(){return inject_head_js()})
 
-//- !=fragment_cache('injectHead', function(){return injectHtml(theme.inject.head)})  // Temporary fix for Hexo 8
+!=fragment_cache('injectHead', function(){return injectHtml(theme.inject.head)})
