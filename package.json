@@ -22,7 +22,7 @@
     "hexo-deployer-git": "^3.0.0",
     "hexo-filter-gitcalendar": "^1.0.6",
     "hexo-generator-archive": "^1.0.0",
-    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-tag": "^1.0.0",
     "hexo-git-backup": "^0.1.3",
